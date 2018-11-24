@@ -2,8 +2,9 @@
 on begin()
 set otherScript to "config.spct"
 tell application "Finder"
-	set _otherScript to (get container of (path to me)) as string
-	set otherScript to (_otherScript & otherScript) as string
+	set otherScript to ("Macintosh HD:Users:kylestephens:Documents/config.spct") as string
+
+	-- set otherScript to (_otherScript & otherScript) as string
 
 end tell
 
@@ -14,6 +15,7 @@ end tell
 	--set otherScript to
 		--(container of (path to me)) as string & otherScript
 set model to load script file otherScript
+display dialog otherScript
 
 --end if
 end begin
