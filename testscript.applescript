@@ -1,5 +1,12 @@
-set myOtherScript to load script (alias ((path to desktop) & "mytxt.txt"))
-myOtherScript's saySomething()
+set otherScript to "config.spct"
+if (path to me as string) ends with ":" then
+set otherScript to
+	(path to resource otherScript in directory "Scripts") as string
+else
+	set otherScript to
+		(container of (path to me) as string) & otherScript
+set model to load script file otherScript
+model saySomething()
 
 
 

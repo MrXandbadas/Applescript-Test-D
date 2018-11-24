@@ -1,0 +1,23 @@
+on gatherInformation()
+display dialog "Number of cues to generate:" default answer "100"
+if button returned of result = "cancel" then
+	return
+else
+	set therepeat to (text returned of result) as integer
+end if
+
+display dialog "Starting value for variable?" default answer "1"
+if button returned of result = "cancel" then
+	return
+else
+	set theindex to (text returned of result) as real
+end if
+display dialog "Integer value format" buttons {"1", "1.0"} default button "1"
+set integertype to button returned of result
+display dialog "Naming Convention for Cues:" default answer "" buttons {"panic", "GO"} default button "GO"
+if button returned of result is "panic" then
+	return
+else
+	set thenamingConvention to (text returned of result) as string
+end if
+end gatherInformation
