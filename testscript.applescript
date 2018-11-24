@@ -1,7 +1,23 @@
+
 property myScript : load script (alias "Macintosh HD:Users:kylestephens:desktop:AppleScripts:config.scpt")
 on begin()
 	tell myScript
-		gatherInformation()
+		set newIndex to 0
+		set myList to gatherInformation()
+		repeat with theItem in myList
+			-- display dialog (theItem & " " & newIndex) as string
+			if newIndex is 0 then
+				set therepeat to theItem
+			else if newIndex is 1 then
+				set theindex to theItem
+			else if newIndex is 2 then
+				set thenamingConvention to theItem
+			else if newIndex is 3 then
+				set integertype to theItem	
+			end if
+			set newIndex to newIndex + 1
+		end repeat
+		-- {{therepeat}, {theindex}, {thenamingConvention}, {integertype}}
 	end tell
 end begin
 
