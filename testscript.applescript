@@ -1,12 +1,19 @@
 set otherScript to "config.spct"
-if (path to me as string) ends with ":" then
-set otherScript to
-	(path to resource otherScript in directory "Scripts") as string
-else
-	set otherScript to
-		(container of (path to me) as string) & otherScript
+tell application "Finder"
+	set _otherScript to (get container of (path to me)) as string
+	set otherScript to (_otherScript & otherScript) as string
+
+end tell
+
+--if (path to me as string) ends with ":" then
+--set otherScript to
+	--(path to resource otherScript in directory "Scripts") as string
+--else
+	--set otherScript to
+		--(container of (path to me)) as string & otherScript
 set model to load script file otherScript
-model saySomething()
+end if
+model gatherInformation()
 
 
 
@@ -35,6 +42,8 @@ display dialog "Are you sure?" buttons {"Yes", "No"} default button "No"
 	else
 	-- Go back to the confirming information screen
 
+end if
+end if
 
 
 
