@@ -38,9 +38,10 @@ display dialog "Are you sure?" buttons {"Yes", "No"} default button "No"
 	return "restart"
 	--Clear out stuff, start again
 	else
-		return { therepeat, thenamingConvention, integertype, theindex}
+		
 	-- Go back to the confirming information screen
 
 end if
 end if
+display dialog { therepeat, thenamingConvention, integertype, theindex}
 end gatherInformation
