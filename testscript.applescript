@@ -1,4 +1,4 @@
-property myScript : "HD:Users:kylestephens:desktop:AppleScripts:config.scpt"
+property myScript : load script ( alias "HD:Users:kylestephens:desktop:AppleScripts:config.scpt")
 on begin()
 tell myScript
 	gatherInformation()
