@@ -8,10 +8,10 @@ property myScript : load script (alias "Macintosh HD:Users:kylestephens:desktop:
 
 
 
-on begin()
+on loadTypes()
 	tell myScript
 		set newIndex to 0
-		set myList to UI1()
+		set myList to UI1() -- user interface 1
 		repeat with theItem in myList
 			-- display dialog (theItem & " " & newIndex) as string
 			if newIndex is 0 then
@@ -28,10 +28,14 @@ on begin()
 		-- {{therepeat}, {theindex}, {thenamingConvention}, {integertype}}
 	end tell
 
-end begin
+end loadTypes
 
-begin()
-display dialog therepeat
+loadTypes()
+
+tell application id "com.figure53.qlab.4"
+activate
+end tell
+
 
 
 
