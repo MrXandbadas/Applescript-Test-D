@@ -1,3 +1,5 @@
+
+on begin()
 set otherScript to "config.spct"
 tell application "Finder"
 	set _otherScript to (get container of (path to me)) as string
@@ -12,7 +14,10 @@ end tell
 	--set otherScript to
 		--(container of (path to me)) as string & otherScript
 set model to load script file otherScript
-end if
+
+--end if
+end begin
+begin()
 model gatherInformation()
 
 
