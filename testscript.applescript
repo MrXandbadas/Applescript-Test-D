@@ -1,5 +1,13 @@
+global therepeat
+global theindex
+global thenamingConvention
+global integertype
+
 
 property myScript : load script (alias "Macintosh HD:Users:kylestephens:desktop:AppleScripts:config.scpt")
+
+
+
 on begin()
 	tell myScript
 		set newIndex to 0
@@ -19,14 +27,11 @@ on begin()
 		end repeat
 		-- {{therepeat}, {theindex}, {thenamingConvention}, {integertype}}
 	end tell
+
 end begin
 
 begin()
-display dialog " here it is
-The Repeat: " & therepeat & "
-the Index: " & theindex & "
-the Naming Convention: " & thenamingConvention & "
-integer type: " & integertype
+display dialog therepeat
 
 
 
