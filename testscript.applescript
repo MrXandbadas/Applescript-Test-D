@@ -1,12 +1,12 @@
-
+property myScriptFolder : "HD:Users:kylestephens:desktop:AppleScripts:"
 on begin()
-set otherScript to "config.spct"
-tell application "Finder"
-	set otherScript to ("Macintosh HD:Users:kylestephens:Desktop:AppleScripts/config.spct") as string
-
+set myfile to "config.spct"
+--tell application "Finder"
+	--set otherScript to ("Macintosh HD:Users:kylestephens:Desktop:AppleScripts/config.spct") as string
+	set mycurrentfile to ((myFolder as string) & (myfile as string)) as string
 	-- set otherScript to (_otherScript & otherScript) as string
 
-end tell
+--end tell
 
 --if (path to me as string) ends with ":" then
 --set otherScript to
