@@ -1,4 +1,4 @@
-on gatherInformation()
+on UI1()
 	display dialog "Number of cues to generate:" default answer "100"
 	if button returned of result = "cancel" then
 		return
@@ -46,4 +46,4 @@ Information correct?" with icon caution buttons {"Yes", "No"} default button "No
 		end if
 	end if
 	return {{therepeat}, {theindex}, {thenamingConvention}, {integertype}}
-end gatherInformation
+end UI1

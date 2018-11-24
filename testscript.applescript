@@ -3,7 +3,7 @@ property myScript : load script (alias "Macintosh HD:Users:kylestephens:desktop:
 on begin()
 	tell myScript
 		set newIndex to 0
-		set myList to gatherInformation()
+		set myList to UI1()
 		repeat with theItem in myList
 			-- display dialog (theItem & " " & newIndex) as string
 			if newIndex is 0 then
@@ -22,6 +22,11 @@ on begin()
 end begin
 
 begin()
+display dialog " here it is
+The Repeat: " & therepeat & "
+the Index: " & theindex & "
+the Naming Convention: " & thenamingConvention & "
+integer type: " & integertype
 
 
 
