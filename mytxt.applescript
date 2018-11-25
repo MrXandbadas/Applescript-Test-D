@@ -3,6 +3,7 @@ set userWatchedFolder to "watched" -- Set the name of the watched folder (or cha
 set userWatchedCuelist to "Main Cue List" -- Set the name of the cuelist for automatically-generated cues
 set userFlagNewCues to false -- Flag any automatically-generated cues?
 
+
 -- Declarations
 
 global dialogTitle
@@ -17,7 +18,8 @@ set cuesAdded to 0
 -- Main routine
 
 tell application id "com.figure53.qlab.4" to tell front workspace
-	
+	set mycueLists to every cue list
+	set mycurrentList to current cue list
 	
 	-- Locate the watched folder
 	
@@ -30,7 +32,8 @@ tell application id "com.figure53.qlab.4" to tell front workspace
 		
 		set workspacePath to path
 		if workspacePath is missing value then
-			display dialog "The current workspace has not yet been saved anywhere." with title dialogTitle with icon 0 ¬
+			display dialog "The current workspace has not yet been saved anywhere.
+			Please save the workspace and try again" with title dialogTitle with icon 0 ¬
 				buttons {"OK"} default button "OK" giving up after 5
 			return
 		end if
@@ -70,19 +73,17 @@ tell application id "com.figure53.qlab.4" to tell front workspace
 	
 	
 	try
-		set watchedCuelist to first cue list whose q name is userWatchedCuelist
+	display dialog {mycueList}
+		set watchedCuelist to first cue list whose q name is "Main Cue List"
+		
 		
 	on error
-		display dialog "The destination cuelist \"" & userWatchedCuelist & "\" does not exist." with title dialogTitle with icon 0 ¬
+		display dialog "'Main Cue List' is missing " with title dialogTitle with icon 0 ¬
 			buttons {"OK"} default button "OK"
 		return
 	end try
 	
-	try
-		make type "cue list"
-		
-	end try
-	-- set q name of (selected as list) to "SFX Assets"
+	
 	
 	
 	-- Replicate file structure
