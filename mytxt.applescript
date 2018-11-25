@@ -74,25 +74,21 @@ tell application id "com.figure53.qlab.4" to tell front workspace
 	
 	try
 	
-		set watchedCuelist to first cue list whose q name is ("Main Cue List")
+		set watchedCuelist to first cue list whose q name is ("SFX Assets")
 		
-
+	on error
 		try
-			make type "cue list"
+		make type "cue list"
 			try
 			set sfxCueGroup to first cue list whose q name is ("Cue List")
 			set the q name of sfxCueGroup to "SFX Assets"
 			set the q color of sfxCueGroup to "Green"
-		on error
-		display dialog "Error renaming cuelist" with title dialogTitle with icon 0
-		buttons {"OK"} default button "OK"
-		return
-		end try
-		
-	on error
-		display dialog "'Main Cue List' had a problem making itself " with title dialogTitle with icon 0 ¬
+			set watchedCuelist to first cue list whose q name is ("SFX Assets")
+			on error
+			display dialog "Error Making the CueList" with title dialogTitle with icon 0
 			buttons {"OK"} default button "OK"
-		return
+			return
+			end try
 	end try
 	
 	
