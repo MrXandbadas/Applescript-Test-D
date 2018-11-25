@@ -9,6 +9,9 @@ set showFileTypes to {"ShowType 1", "Default", "Blank"}
 
 on startQlab()
 	tell application id "com.figure53.qlab.4" to activate
+	tell application "SystemUIServer"
+	activate
+	end tell
 end startQlab
 on loadTypes()
 	tell myScript
@@ -35,13 +38,16 @@ end loadTypes
 -- start of stuff
 
 
+display dialog "Starting QLab and ensuring stability"
 
 startQLab()
 
-display dialog "Starting QLab and ensuring stability"
+
 delay 5
 set fileType to choose from list showFileTypes
-if item 1 of fileType is "ShowType 1" then
+if fileType is false then
+	return
+	else if item 1 of fileType is "ShowType 1" then
 	loadTypes()
 	display dialog fileType
 	else if item 1 of fileType is "Default" then
