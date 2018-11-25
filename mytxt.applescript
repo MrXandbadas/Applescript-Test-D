@@ -85,7 +85,6 @@ tell application id "com.figure53.qlab.4" to tell front workspace
 			set watchedCuelist to first cue list whose q name is ("SFX Assets")
 			on error
 			display dialog "Error Making the CueList" with title dialogTitle with icon 0
-			buttons {"OK"} default button "OK"
 			return
 			end try
 	end try
