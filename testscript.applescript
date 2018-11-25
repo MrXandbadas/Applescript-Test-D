@@ -9,8 +9,6 @@ set showFileTypes to {"ShowType 1", "Default", "Blank"}
 
 on startQlab()
 	tell application id "com.figure53.qlab.4" to activate
-	delay 5
-	
 end startQlab
 on loadTypes()
 	tell myScript
@@ -39,6 +37,10 @@ set fileType to choose from list showFileTypes
 
 
 startQLab()
+
+display dialog "Starting QLab and ensuring stability"
+delay 5
+
 if item 1 of fileType is "ShowType 1" then
 	loadTypes()
 	display dialog fileType
@@ -47,7 +49,6 @@ if item 1 of fileType is "ShowType 1" then
 	else if item 1 of fileType is "Blank" then
 	display dialog fileType
 	end if
-
 
 
 tell application id "com.figure53.qlab.4" to tell front workspace
