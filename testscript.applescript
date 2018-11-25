@@ -32,9 +32,14 @@ end loadTypes
 
 loadTypes()
 
-tell application id "com.figure53.qlab.4"
-activate
-end tell
+
+tell application id "com.figure53.qlab.4" to activate
+tell front workspace
+	display dialog name of workspace
+	end tell	
+
+--tell front workspace
+--
 
 
 
