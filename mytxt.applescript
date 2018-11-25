@@ -73,9 +73,20 @@ tell application id "com.figure53.qlab.4" to tell front workspace
 	
 	
 	try
-	display dialog (mycueList)
+	
 		set watchedCuelist to first cue list whose q name is ("Main Cue List")
 		
+
+		try
+			make type "cue list"
+			set sfxCueGroup to second cue list whos q name is ("Cue List")
+			set the q name of sfxCueGroup to "SFX Assets"
+
+		on error
+		display dialog "Error in Line 80" with title dialogTitle with icon 0
+		return
+
+		end try
 		
 	on error
 		display dialog "'Main Cue List' is missing " with title dialogTitle with icon 0 ¬
