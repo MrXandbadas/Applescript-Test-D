@@ -73,8 +73,8 @@ tell application id "com.figure53.qlab.4" to tell front workspace
 	
 	
 	try
-	display dialog {mycueList}
-		set watchedCuelist to first cue list whose q name is "Main Cue List"
+	display dialog (mycueList)
+		set watchedCuelist to first cue list whose q name is ("Main Cue List")
 		
 		
 	on error
