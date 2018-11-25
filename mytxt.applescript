@@ -1,8 +1,10 @@
-set userWatchedFolderIsNextToWorkspace to true -- Change this to false if your watched folder isn't next to the workspace
-set userWatchedFolder to "watched" -- Set the name of the watched folder (or change this to a full POSIX path if you change the above to false)
+
+
+on SFXAssetBuild(userWatchedFolderIsNextToWorkspace)
+
+set userWatchedFolder to "SFX" -- Set the name of the watched folder (or change this to a full POSIX path if you change the above to false)
 set userWatchedCuelist to "Main Cue List" -- Set the name of the cuelist for automatically-generated cues
 set userFlagNewCues to false -- Flag any automatically-generated cues?
-
 
 -- Declarations
 
@@ -18,8 +20,6 @@ set cuesAdded to 0
 -- Main routine
 
 tell application id "com.figure53.qlab.4" to tell front workspace
-	set mycueLists to every cue list
-	set mycurrentList to current cue list
 	
 	-- Locate the watched folder
 	
@@ -79,7 +79,6 @@ tell application id "com.figure53.qlab.4" to tell front workspace
 	on error
 		try
 		make type "cue list"
-			try
 			set sfxCueGroup to first cue list whose q name is ("Cue List")
 			set the q name of sfxCueGroup to "SFX Assets"
 			set the q color of sfxCueGroup to "Green"
@@ -260,3 +259,5 @@ tell application id "com.figure53.qlab.4" to tell front workspace
 	
 	
 end tell
+
+end SFXAssetBuild
