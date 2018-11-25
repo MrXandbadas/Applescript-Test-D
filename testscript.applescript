@@ -7,7 +7,11 @@ property myScript : load script (alias "Macintosh HD:Users:kylestephens:desktop:
 
 set showFileTypes to {"ShowType 1", "Default", "Blank"}
 
-
+on startQlab()
+	tell application id "com.figure53.qlab.4" to activate
+	delay 5
+	
+end startQlab
 on loadTypes()
 	tell myScript
 		set newIndex to 0
@@ -32,17 +36,21 @@ end loadTypes
 
 -- start of stuff
 set fileType to choose from list showFileTypes
+
+
+startQLab()
 if item 1 of fileType is "ShowType 1" then
+	loadTypes()
 	display dialog fileType
 	else if item 1 of fileType is "Default" then
 	display dialog fileType
-	if item 1 of fileType is "Blank" then
+	else if item 1 of fileType is "Blank" then
 	display dialog fileType
-loadTypes()
+	end if
 
 
-tell application id "com.figure53.qlab.4" to activate
-tell front workspace
+
+tell application id "com.figure53.qlab.4" to tell front workspace
 	display dialog (name of workspace)
 	end tell	
 
