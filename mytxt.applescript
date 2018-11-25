@@ -79,13 +79,22 @@ tell application id "com.figure53.qlab.4" to tell front workspace
 
 		try
 			make type "cue list"
+			try
+
 			set sfxCueGroup to second cue list whos q name is ("Cue List")
-			set the q name of sfxCueGroup to "SFX Assets"
-
-		on error
-		display dialog "Error in Line 80" with title dialogTitle with icon 0
+			on error
+		display dialog "Error in Line 84" with title dialogTitle with icon 0
 		return
-
+			end try
+			try
+			set the q name of sfxCueGroup to "SFX Assets"
+			on error
+		display dialog "Error in Line 90" with title dialogTitle with icon 0
+		return
+			end try
+		on error
+		display dialog "Error in Line 81" with title dialogTitle with icon 0
+		return
 		end try
 		
 	on error
