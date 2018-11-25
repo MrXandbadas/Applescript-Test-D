@@ -33,14 +33,14 @@ on loadTypes()
 end loadTypes
 
 -- start of stuff
-set fileType to choose from list showFileTypes
+
 
 
 startQLab()
 
 display dialog "Starting QLab and ensuring stability"
 delay 5
-
+set fileType to choose from list showFileTypes
 if item 1 of fileType is "ShowType 1" then
 	loadTypes()
 	display dialog fileType
