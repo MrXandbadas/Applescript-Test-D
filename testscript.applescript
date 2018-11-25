@@ -47,7 +47,7 @@ set fileType to choose from list showFileTypes
 	return
 
 	else if item 1 of fileType is "ShowType 1" then
-	loadTypes()
+	fabricateCues(therepeat, theindex, thenamingConvention, integertype)
 
 	else if item 1 of fileType is "Default" then
 
