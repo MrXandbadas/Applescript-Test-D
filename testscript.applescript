@@ -3,9 +3,9 @@ global theindex
 global thenamingConvention
 global integertype
 
-
 property myScript : load script (alias "Macintosh HD:Users:kylestephens:desktop:AppleScripts:config.scpt")
 
+set showFileTypes to {"ShowType 1", "Default", "Blank"}
 
 
 on loadTypes()
@@ -30,12 +30,20 @@ on loadTypes()
 
 end loadTypes
 
+-- start of stuff
+set fileType to choose from list showFileTypes
+if item 1 of fileType is "ShowType 1" then
+	display dialog fileType
+	else if item 1 of fileType is "Default" then
+	display dialog fileType
+	if item 1 of fileType is "Blank" then
+	display dialog fileType
 loadTypes()
 
 
 tell application id "com.figure53.qlab.4" to activate
 tell front workspace
-	display dialog name of workspace
+	display dialog (name of workspace)
 	end tell	
 
 --tell front workspace
