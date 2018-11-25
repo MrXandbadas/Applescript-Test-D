@@ -34,8 +34,19 @@ on loadTypes()
 end loadTypes
 
 on fabricateCues(therepeat, theindex, thenamingConvention, integertype)
+	tell application id "com.figure53.qlab.4" 
 
-	display dialog {therepeat, theindex, thenamingConvention, integertype}
+	activate
+
+	try
+        set workspaceName to q number of front workspace -- This actually gets the name of the workspace
+    on error
+        display dialog "There is no workspace open in QLab." with title dialogTitle with icon 0 buttons {"OK"} default button "OK" giving up after 5
+        return
+    end try
+	
+	end tell 
+	
 
 end fabricateCues
 
@@ -47,7 +58,8 @@ set fileType to choose from list showFileTypes
 	return
 
 	else if item 1 of fileType is "ShowType 1" then
-	fabricateCues(therepeat, theindex, thenamingConvention, integertype)
+	loadTypes() --Gathers UserInput
+	fabricateCues(therepeat, theindex, thenamingConvention, integertype) --Passes the values thru
 
 	else if item 1 of fileType is "Default" then
 
