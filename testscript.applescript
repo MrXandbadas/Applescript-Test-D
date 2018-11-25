@@ -9,6 +9,7 @@ set showFileTypes to {"ShowType 1", "Default", "Blank"}
 
 on startQlab()
 	tell application id "com.figure53.qlab.4" to activate
+	delay 4
 	tell application "SystemUIServer"
 	activate
 	end tell
@@ -42,8 +43,6 @@ display dialog "Starting QLab and ensuring stability"
 
 startQLab()
 
-
-delay 5
 set fileType to choose from list showFileTypes
 if fileType is false then
 	return
