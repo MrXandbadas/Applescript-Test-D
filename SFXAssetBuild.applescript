@@ -11,7 +11,7 @@ on SFXAssetBuild(userWatchedFolderIsNextToWorkspace)
 	global dialogTitle
 	set dialogTitle to "Scan for files"
 	
-	set audioFileTypes to {"com.apple.coreaudio-format", "com.apple.m4a-audio", "com.microsoft.waveform-audio", "public.aifc-audio", "public.aiff-audio", "com.apple.protected-mpeg-4-audio", Â¬
+	set audioFileTypes to {"com.apple.coreaudio-format", "com.apple.m4a-audio", "com.microsoft.waveform-audio", "public.aifc-audio", "public.aiff-audio", "com.apple.protected-mpeg-4-audio", Â
 		"public.audio", "public.mp3", "public.mpeg-4-audio"}
 	(* This list deliberately excludes "com.apple.protected-mpeg-4-audio" to protect against old DRM-restricted iTunes files *)
 	
@@ -39,7 +39,7 @@ on SFXAssetBuild(userWatchedFolderIsNextToWorkspace)
 					set workspacePath to path
 				end if
 				--display dialog "The current workspace has not yet been saved anywhere.
-				--Please save the workspace and try again" with title dialogTitle with icon 0 Â¬
+				--Please save the workspace and try again" with title dialogTitle with icon 0 Â
 				--buttons {"OK"} default button "OK"
 				
 				
@@ -71,7 +71,7 @@ on SFXAssetBuild(userWatchedFolderIsNextToWorkspace)
 		
 		
 		if not folderExists then
-			display dialog "The watched folder \"" & POSIX path of watchedFolder & "\" does not exist." with title dialogTitle with icon 0 Â¬
+			display dialog "The watched folder \"" & POSIX path of watchedFolder & "\" does not exist." with title dialogTitle with icon 0 Â
 				buttons {"OK"} default button "OK"
 			return
 		end if
@@ -261,7 +261,7 @@ on SFXAssetBuild(userWatchedFolderIsNextToWorkspace)
 		end if
 		
 		
-		display dialog theMessage with title dialogTitle with icon 1 Â¬
+		display dialog theMessage with title dialogTitle with icon 1 Â
 			buttons {"OK"} default button "OK" giving up after 5
 		
 		

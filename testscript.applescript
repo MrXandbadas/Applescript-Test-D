@@ -3,7 +3,6 @@ global theindex
 global thenamingConvention
 global integertype
 global workspaceFolderUI
-
 property myScript : load script (alias "Macintosh HD:Users:kylestephens:desktop:AppleScripts:UserInterface.scpt")
 property SFXImport : load script (alias "Macintosh HD:Users:kylestephens:desktop:AppleScripts:SFXAssetBuild.scpt")
 
@@ -27,7 +26,7 @@ on loadTypes()
 				set thenamingConvention to theItem -- String
 			else if newIndex is 3 then
 				set integertype to theItem -- 1 or 1.0
-			else if newIndex is 4 then 
+			else if newIndex is 4 then
 				set workspaceFolderUI to theItem -- True or False
 			end if
 			set newIndex to newIndex + 1

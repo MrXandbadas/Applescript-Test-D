@@ -1,6 +1,10 @@
-on UI1()
+global therepeat
+global theindex
+global thenamingConvention
+global integertype
+global workspaceFolderUI
 --first thing yall see
-	on entryDisplay()
+on entryDisplay()
 	display dialog "Hello there,
 	This is the template Creator for a show that has:
 	Visual Output
@@ -8,17 +12,17 @@ on UI1()
 	LX Output
 	LX Live Control
 
-	Is the show file going to be in the same folder as the Asset Folders?" buttons {"Cancel","No","Yes"} default button "No"
+	Is the show file going to be in the same folder as the Asset Folders?" buttons {"Cancel", "No", "Yes"} default button "No"
 	if button returned of result = "cancel" then
-		return 
+		return
 	else if button returned of result = "No" then
 		set workspaceFolderUI to false
 	else if button returned of result = "Yes" then
 		set workspaceFolderUI to true
 	end if
-	end entryDisplay
-	-- Cues Definition
-	on cues()
+end entryDisplay
+-- Cues Definition
+on cues()
 	display dialog "Number of cues to generate:" default answer "100"
 	if button returned of result = "cancel" then
 		return
@@ -26,10 +30,10 @@ on UI1()
 		
 		set therepeat to (text returned of result) as integer
 	end if
-	end cues
-	
-	--Starting Value
-	on startingValue()
+end cues
+
+--Starting Value
+on startingValue()
 	display dialog "Starting value for variable?" default answer "1"
 	if button returned of result = "cancel" then
 		return
@@ -37,26 +41,26 @@ on UI1()
 		
 		set theindex to (text returned of result) as real
 	end if
-	end startingValue
+end startingValue
 
-	-- Integer
-	on integerVal()
+-- Integer
+on integerVal()
 	display dialog "Integer value format" buttons {"1", "1.0"} default button "1"
 	set integertype to button returned of result
-	end integerVal
+end integerVal
 
-	-- Naming Convention
-	on namingCon()
+-- Naming Convention
+on namingCon()
 	display dialog "Naming Convention for Cues:" default answer "" buttons {"panic", "GO"} default button "GO"
 	if button returned of result is "panic" then
 		return
 	else
 		set thenamingConvention to (text returned of result) as string
 	end if
-	end namingCon
+end namingCon
 
-	--Info Checker
-	on infoChecker()
+--Info Checker
+on infoChecker()
 	display dialog "
 Please ensure all information is correct:
 Naming Standard: " & thenamingConvention & "
@@ -76,15 +80,19 @@ Information correct?" with icon caution buttons {"Yes", "No"} default button "No
 			
 		end if
 	end if
-	end infoChecker
+end infoChecker
 
---Here is the script
-
+on UI1()
+	
+	
+	--Here is the script
+	
 	entryDisplay()
 	cues()
 	startingValue()
 	integerVal()
 	namingCon()
+	delay 1
 	infoChecker()
 	return {{therepeat}, {theindex}, {thenamingConvention}, {integertype}, {workspaceFolderUI}}
 end UI1
