@@ -2,8 +2,9 @@ global therepeat
 global theindex
 global thenamingConvention
 global integertype
+global workspaceFolderUI
 
-property myScript : load script (alias "Macintosh HD:Users:kylestephens:desktop:AppleScripts:config.scpt")
+property myScript : load script (alias "Macintosh HD:Users:kylestephens:desktop:AppleScripts:UserInterface.scpt")
 property SFXImport : load script (alias "Macintosh HD:Users:kylestephens:desktop:AppleScripts:SFXAssetBuild.scpt")
 
 set showFileTypes to {"ShowType 1", "Default", "Blank"}
@@ -19,13 +20,15 @@ on loadTypes()
 		repeat with theItem in myList
 			-- display dialog (theItem & " " & newIndex) as string
 			if newIndex is 0 then
-				set therepeat to theItem
+				set therepeat to theItem -- Number
 			else if newIndex is 1 then
-				set theindex to theItem
+				set theindex to theItem -- Number
 			else if newIndex is 2 then
-				set thenamingConvention to theItem
+				set thenamingConvention to theItem -- String
 			else if newIndex is 3 then
-				set integertype to theItem
+				set integertype to theItem -- 1 or 1.0
+			else if newIndex is 4 then 
+				set workspaceFolderUI to theItem -- True or False
 			end if
 			set newIndex to newIndex + 1
 		end repeat
@@ -49,7 +52,7 @@ else if item 1 of fileType is "ShowType 1" then
 	loadTypes() --Gathers UserInput
 	fabricateCues(therepeat, theindex, thenamingConvention, integertype) --Passes the values thru
 	tell SFXImport
-		SFXAssetBuild(true)
+		SFXAssetBuild(workspaceFolderUI) -- passing true or false because the folder is in the workspace
 	end tell
 	-- tell application "Finder" to save workspace in file resultFile
 	
