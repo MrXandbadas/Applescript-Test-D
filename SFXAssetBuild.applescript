@@ -32,9 +32,12 @@ tell application id "com.figure53.qlab.4" to tell front workspace
 		
 		set workspacePath to path
 		if workspacePath is missing value then
-			display dialog "The current workspace has not yet been saved anywhere.
-			Please save the workspace and try again" with title dialogTitle with icon 0 ¬
-				buttons {"OK"} default button "OK" giving up after 5
+		set resultFile to (choose file name with prompt "Save As File" default name "My File" default location path to desktop) as text
+		save workspace as resultFile
+			--display dialog "The current workspace has not yet been saved anywhere.
+			--Please save the workspace and try again" with title dialogTitle with icon 0 ¬
+				--buttons {"OK"} default button "OK"
+
 			return
 		end if
 		

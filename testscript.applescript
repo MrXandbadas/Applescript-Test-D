@@ -33,7 +33,7 @@ on loadTypes()
 
 end loadTypes
 
-on fabricateCues(therepeat, theindex, thenamingConvention, integertype)
+on fabricateCues(therepeat, theindex, thenamingConvention, integertype) -- as number, as number, as string, 1 or 1.0
 	tell application id "com.figure53.qlab.4" 
 
 	activate
@@ -51,8 +51,6 @@ on fabricateCues(therepeat, theindex, thenamingConvention, integertype)
 end fabricateCues
 
 -- start of stuff
-startQLab()
-
 set fileType to choose from list showFileTypes
 	if fileType is false then
 	return
