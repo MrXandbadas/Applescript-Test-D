@@ -4,7 +4,7 @@ global thenamingConvention
 global integertype
 global workspaceFolderUI
 --first thing yall see
-on entryDisplay()
+on templateDisplay()
 	display dialog "Hello there,
 	This is the template Creator for a show that has:
 	Visual Output
@@ -14,13 +14,14 @@ on entryDisplay()
 
 	Is the show file going to be in the same folder as the Asset Folders?" buttons {"Cancel", "No", "Yes"} default button "No"
 	if button returned of result = "cancel" then
-		return
+		return false
 	else if button returned of result = "No" then
 		set workspaceFolderUI to false
 	else if button returned of result = "Yes" then
 		set workspaceFolderUI to true
 	end if
-end entryDisplay
+	return true
+end templateDisplay
 -- Cues Definition
 on cues()
 	display dialog "Number of cues to generate:" default answer "100"
@@ -86,13 +87,17 @@ on UI1()
 	
 	
 	--Here is the script
-	
-	entryDisplay()
-	cues()
-	startingValue()
-	integerVal()
-	namingCon()
-	delay 1
-	infoChecker()
-	return {{therepeat}, {theindex}, {thenamingConvention}, {integertype}, {workspaceFolderUI}}
+	delay 3
+	if templateDisplay() is true then
+		cues()
+		startingValue()
+		integerVal()
+		namingCon()
+		delay 1
+		infoChecker()
+		return {{therepeat}, {theindex}, {thenamingConvention}, {integertype}, {workspaceFolderUI}}
+	else
+		display dialog "Got Canceled" buttons {"Okay"}
+		return {false}
+	end if
 end UI1

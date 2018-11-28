@@ -11,8 +11,7 @@ on SFXAssetBuild(userWatchedFolderIsNextToWorkspace)
 	global dialogTitle
 	set dialogTitle to "Scan for files"
 	
-	set audioFileTypes to {"com.apple.coreaudio-format", "com.apple.m4a-audio", "com.microsoft.waveform-audio", "public.aifc-audio", "public.aiff-audio", "com.apple.protected-mpeg-4-audio", Â
-		"public.audio", "public.mp3", "public.mpeg-4-audio"}
+	set audioFileTypes to {"com.apple.coreaudio-format", "com.apple.m4a-audio", "com.microsoft.waveform-audio", "public.aifc-audio", "public.aiff-audio", "com.apple.protected-mpeg-4-audio", "public.audio", "public.mp3", "public.mpeg-4-audio"}
 	(* This list deliberately excludes "com.apple.protected-mpeg-4-audio" to protect against old DRM-restricted iTunes files *)
 	
 	set cuesAdded to 0
@@ -39,9 +38,10 @@ on SFXAssetBuild(userWatchedFolderIsNextToWorkspace)
 					set workspacePath to path
 				end if
 				--display dialog "The current workspace has not yet been saved anywhere.
-				--Please save the workspace and try again" with title dialogTitle with icon 0 Â
+				--Please save the workspace and try again" with title dialogTitle with icon 0 
 				--buttons {"OK"} default button "OK"
 				
+
 				
 				
 			end if
